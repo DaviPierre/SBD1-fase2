@@ -1,0 +1,117 @@
+CREATE TABLE Cliente(
+cpf INTEGER,
+email TEXT,
+senha TEXT,
+PRIMARY KEY(cpf)
+);
+
+CREATE TABLE Armazem(
+id INTEGER,
+capacidade INTEGER,
+PRIMARY KEY(id)
+);
+
+CREATE TABLE Fornecedor(
+cpf INTEGER,
+tipo_produto TEXT,
+PRIMARY KEY(cpf)
+);
+
+CREATE TABLE Pedido(
+id INTEGER,
+quantidade_produtos INTEGER,
+valor INTEGER,
+PRIMARY KEY(id)
+);
+
+CREATE TABLE Produto(
+codigo INTEGER,
+preco INTEGER,
+nome TEXT,
+cpf_cliente INTEGER,
+PRIMARY KEY(codigo),
+FOREIGN KEY(cpf_cliente) REFERENCES Cliente(cpf)
+);
+
+CREATE TABLE Fontes (
+codigo_produto INTEGER,
+voltagem INTEGER,
+potencia INTEGER,
+FOREIGN KEY (codigo_produto) REFERENCES Produto(codigo),
+PRIMARY KEY (codigo_produto)
+);
+
+CREATE TABLE Led(
+codigo_produto INTEGER,
+tamanho INTEGER,
+cor TEXT,
+FOREIGN KEY (codigo_produto) REFERENCES Produto(codigo),
+PRIMARY KEY (codigo_produto)
+);
+
+CREATE TABLE Endereco_a(
+id_armazem INTEGER,
+rua TEXT,
+bairro TEXT,
+complemento TEXT,
+PRIMARY KEY(id_armazem),
+FOREIGN KEY (id_armazem) REFERENCES Armazem(id)
+);
+
+CREATE TABLE Endereco_c(
+rua TEXT,
+bairro TEXT,
+complemento TEXT,
+cpf_cliente INTEGER,
+PRIMARY KEY(cpf_cliente),
+FOREIGN KEY (cpf_cliente) REFERENCES Cliente(cpf)
+);
+
+CREATE TABLE Armazem_Fornecedor(
+id_armazem INTEGER,
+cpf_fornecedor INTEGER,
+FOREIGN KEY(id_armazem) REFERENCES Armazem(id),
+FOREIGN KEY(cpf_fornecedor) REFERENCES Fornecedor(cpf),
+PRIMARY KEY(id_armazem, cpf_fornecedor)
+);
+
+CREATE TABLE Cliente_armazem(
+cpf_cliente INTEGER,
+id_armazem INTEGER,
+FOREIGN KEY(cpf_cliente) REFERENCES Cliente(cpf),
+FOREIGN KEY(id_armazem) REFERENCES Armazem(id),
+PRIMARY KEY(cpf_cliente, id_armazem)
+);
+
+CREATE TABLE Fornecedor_produto(
+cpf_fornecedor INTEGER,
+codigo_produto INTEGER,
+FOREIGN KEY(cpf_fornecedor) REFERENCES Fornecedor(cpf),
+FOREIGN KEY(codigo_produto) REFERENCES Produto(codigo),
+PRIMARY KEY(cpf_fornecedor, codigo_produto)
+);
+
+CREATE TABLE Produto_armazem(
+codigo_produto INTEGER,
+id_armazem INTEGER,
+FOREIGN KEY(id_armazem) REFERENCES Armazem(id),
+FOREIGN KEY(codigo_produto) REFERENCES Produto(codigo),
+PRIMARY KEY(id_armazem, codigo_produto)
+);
+
+CREATE TABLE Cliente_pedido_produto(
+id_pedido INTEGER,
+codigo_produto INTEGER,
+cpf_cliente INTEGER,
+FOREIGN KEY(id_pedido) REFERENCES Pedido(id),
+FOREIGN KEY(codigo_produto) REFERENCES Produto(codigo),
+FOREIGN KEY(cpf_cliente) REFERENCES Cliente(cpf),
+PRIMARY KEY(codigo_produto, id_pedido)
+);
+
+CREATE TABLE Fornecedor_fornecedor(
+cpf_fornecedor INTEGER,
+cpf_fornecedor_consumidor INTEGER,
+FOREIGN KEY(cpf_fornecedor ) REFERENCES Fornecedor(cpf),
+FOREIGN KEY(cpf_fornecedor_consumidor ) REFERENCES Fornecedor(cpf)
+);
