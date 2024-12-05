@@ -30,7 +30,7 @@ CREATE TABLE Produto(
 codigo INTEGER,
 preco INTEGER,
 nome TEXT,
-PRIMARY KEY(codigo),
+PRIMARY KEY(codigo)
 );
 
 CREATE TABLE Fontes (
