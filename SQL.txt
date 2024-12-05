@@ -21,16 +21,16 @@ CREATE TABLE Pedido(
 id INTEGER,
 quantidade_produtos INTEGER,
 valor INTEGER,
-PRIMARY KEY(id)
+cpf_cliente INTEGER,
+PRIMARY KEY(id),
+FOREIGN KEY(cpf_cliente) REFERENCES Cliente(cpf)
 );
 
 CREATE TABLE Produto(
 codigo INTEGER,
 preco INTEGER,
 nome TEXT,
-cpf_cliente INTEGER,
 PRIMARY KEY(codigo),
-FOREIGN KEY(cpf_cliente) REFERENCES Cliente(cpf)
 );
 
 CREATE TABLE Fontes (
