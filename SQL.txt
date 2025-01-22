@@ -167,27 +167,27 @@ INSERT INTO Pedido (id, quantidade_produtos, valor, cpf_cliente) VALUES
 (19, 2, 150, 12345678919),
 (20, 1, 95, 22345678920);
 
-INSERT INTO Produto (codigo, preco, nome) VALUES
-(1, 50, 'Fonte'),
-(2, 30, 'LED'),
-(3, 70, 'Fonte'),
-(4, 40, 'LED'),
-(5, 60, 'Fonte'),
-(6, 35, 'LED'),
-(7, 80, 'Fonte'),
-(8, 45, 'LED'),
-(9, 90, 'Fonte'),
-(10, 50, 'LED'),
-(11, 55, 'Fonte'),
-(12, 32, 'LED'),
-(13, 75, 'Fonte'),
-(14, 42, 'LED'),
-(15, 65, 'Fonte'),
-(16, 38, 'LED'),
-(17, 85, 'Fonte'),
-(18, 47, 'LED'),
-(19, 95, 'Fonte'),
-(20, 52, 'LED');
+INSERT INTO Produto (codigo, preco, nome, tipo) VALUES
+(1, 50, 'PowerLink', 'Fonte'),
+(2, 30, 'LuminaBeam', 'LED'),
+(3, 70, 'VoltPrime', 'Fonte'),
+(4, 40, 'BrightCore', 'LED'),
+(5, 60, 'EnergyHive', 'Fonte'),
+(6, 35, 'LightSphere', 'LED'),
+(7, 80, 'GreenSpark', 'Fonte'),
+(8, 45, 'GlowPulse', 'LED'),
+(9, 90, 'SolarCore', 'Fonte'),
+(10, 50, 'CrystalRay', 'LED'),
+(11, 55, 'HydroPulse', 'Fonte'),
+(12, 32, 'RadianceX', 'LED'),
+(13, 75, 'IonDrive', 'Fonte'),
+(14, 42, 'OptiBright', 'LED'),
+(15, 65, 'EcoCharge', 'Fonte'),
+(16, 38, 'StarGlow', 'LED'),
+(17, 85, 'TerraFlow', 'Fonte'),
+(18, 47, 'Lumenoid', 'LED'),
+(19, 95, 'ThunderGrid', 'Fonte'),
+(20, 52, 'ClearLuxe', 'LED');
 
 INSERT INTO Led (codigo_produto, tamanho, cor) VALUES
 (2, 15, 'Vermelho'),
