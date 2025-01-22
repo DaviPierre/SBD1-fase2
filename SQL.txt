@@ -30,6 +30,7 @@ CREATE TABLE Produto(
 codigo INTEGER,
 preco INTEGER,
 nome TEXT,
+tipo,
 PRIMARY KEY(codigo)
 );
 
